@@ -1,26 +1,36 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/classes/product.dart';
+import 'package:flutter_application_1/screens/product_details.dart';
+import 'package:flutter_application_1/consts.dart';
 
 class ListWidget extends StatelessWidget {
-  const ListWidget({
-    super.key,
-    required this.product,
-  });
-
-  final List<Product> product;
+  const ListWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: product.length,
+      itemCount: products.length,
       itemBuilder: (context, index) {
+        Product product = products[index];
         return Padding(
-          padding: const EdgeInsets.symmetric(vertical: 1.0, horizontal: 4.0),
+          padding: const EdgeInsets.symmetric(vertical: 3, horizontal: 18),
           child: Card(
-            child: ListTile(
-              title: Text(product[index].productName),
-              leading: CircleAvatar(
-                  backgroundImage: AssetImage('assets/${product[index].img}')),
+            child: InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ProductDetails(details: product),
+                  ),
+                );
+              },
+              child: ListTile(
+                title: Text(product.productName),
+                leading: CircleAvatar(
+                  backgroundImage: AssetImage('assets/${product.img}'),
+                ),
+                trailing: const Icon(Icons.arrow_forward_rounded),
+              ),
             ),
           ),
         );

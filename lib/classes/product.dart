@@ -1,7 +1,11 @@
-class Product{
+class Product {
   String img;
   String productName;
   int price;
-  Product({required this.productName, required this.price,required this.img});
-
+  String description;
+  Product(
+      {required this.productName,
+      required this.price,
+      required this.img,
+      required this.description});
 }

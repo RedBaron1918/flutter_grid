@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'consts.dart';
 import 'widgets/grid.dart';
 import 'widgets/list.dart';
 
@@ -29,9 +28,7 @@ class _ProductListState extends State<ProductList> {
               icon: const Icon(Icons.grid_view))
         ],
       ),
-      body: _isListView
-          ? ListWidget(product: products)
-          : GridWidget(product: products),
+      body: _isListView ? ListWidget() : GridWidget(),
     );
   }
 }

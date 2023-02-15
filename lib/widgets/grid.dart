@@ -1,5 +1,4 @@
 // ignore_for_file: file_names
-
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/screens/product_details.dart';
 class GridWidget extends StatefulWidget {
@@ -14,8 +13,8 @@ class _GridWidgetState extends State<GridWidget> {
   Widget build(BuildContext context) {
     return  Column(
       children: [
-      
         Expanded(child: GridView.builder(
+          physics: const BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
       itemCount: widget.object.length,
       gridDelegate:
           const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
@@ -49,9 +48,6 @@ class _GridWidgetState extends State<GridWidget> {
       },
     ))
       ],
-      
     );
   }
 }
-
-

@@ -25,7 +25,6 @@ late final TextEditingController _searchController = TextEditingController();
       }else{
         filteredProducts =[];
       }
-      
     });
   }
   @override
@@ -56,7 +55,6 @@ late final TextEditingController _searchController = TextEditingController();
         Expanded(child: GridWidget(object: filteredProducts),
     )
       ],
-      
     );
   }
 }

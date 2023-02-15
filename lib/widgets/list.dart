@@ -9,16 +9,14 @@ class ListWidget extends StatefulWidget {
   @override
   State<ListWidget> createState() => _ListWidgetState();
 }
-
 class _ListWidgetState extends State<ListWidget> {
-  
-
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         Expanded(
           child: ListView.builder(
+            physics: const BouncingScrollPhysics(),
             itemCount: products.length,
             itemBuilder: (context, index) {
               Product product = products[index];

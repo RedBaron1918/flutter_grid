@@ -13,7 +13,7 @@ class SearchBar extends StatefulWidget {
 
 class _SearchBarState extends State<SearchBar> {
   late final TextEditingController _searchController = TextEditingController();
-  late List<Product> filteredProducts = [];
+  late List<Product> filteredProducts = products;
 
   void _filterProducts(String search) {
     List<Product> filterProducts = [];
@@ -23,7 +23,7 @@ class _SearchBarState extends State<SearchBar> {
       if (search.isNotEmpty) {
         filteredProducts = filterProducts;
       } else {
-        filteredProducts = [];
+        filteredProducts = products;
       }
     });
   }

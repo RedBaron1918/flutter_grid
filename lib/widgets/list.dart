@@ -36,13 +36,13 @@ class _ListWidgetState extends State<ListWidget> {
                     },
                     child: ListTile(
                       title: Text(product.productName),
-                      leading: CircleAvatar(
-                        backgroundImage: AssetImage('assets/${product.img}'),
-                      ),
-                      trailing: Hero(
+                      leading: Hero(
                         tag: product.productName,
-                        child: const Icon(Icons.arrow_forward_rounded),
+                        child: CircleAvatar(
+                          backgroundImage: AssetImage('assets/${product.img}'),
+                        ),
                       ),
+                      trailing: const Icon(Icons.arrow_forward_rounded),
                     ),
                   ),
                 ),

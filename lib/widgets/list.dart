@@ -11,47 +11,17 @@ class ListWidget extends StatefulWidget {
 }
 
 class _ListWidgetState extends State<ListWidget> {
-  late final TextEditingController _searchController = TextEditingController();
-  late List<Product> _filteredProducts = products.toList();
-
-  void _filterProducts(String search) {
-    List<Product> filterProducts = [];
-    filterProducts.addAll(products.where((product) =>
-        product.productName.toLowerCase().contains(search.toLowerCase())));
-    setState(() {
-      _filteredProducts = filterProducts;
-    });
-  }
+  
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
-          child: TextField(
-            key: const Key('search-field'),
-            controller: _searchController,
-            decoration: InputDecoration(
-              hintText: 'Search products',
-              suffixIcon: IconButton(
-                icon: const Icon(Icons.clear),
-                onPressed: () {
-                  _searchController.clear();
-                  _filterProducts('');
-                },
-              ),
-            ),
-            onChanged: (value) {
-              _filterProducts(value);
-            },
-          ),
-        ),
         Expanded(
           child: ListView.builder(
-            itemCount: _filteredProducts.length,
+            itemCount: products.length,
             itemBuilder: (context, index) {
-              Product product = _filteredProducts[index];
+              Product product = products[index];
               return Padding(
                 padding:
                     const EdgeInsets.symmetric(vertical: 3, horizontal: 18),

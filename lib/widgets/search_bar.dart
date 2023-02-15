@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/classes/product.dart';
 import 'package:flutter_application_1/consts.dart';
-import "package:flutter_application_1/widgets/Grid.dart";
+import "package:flutter_application_1/widgets/grid.dart";
 
 class SearchBar extends StatefulWidget {
   final Function callback;
-  const SearchBar({required this.callback,super.key});
+  const SearchBar({required this.callback, super.key});
 
   @override
   State<SearchBar> createState() => _SearchBarState();
 }
 
 class _SearchBarState extends State<SearchBar> {
-late final TextEditingController _searchController = TextEditingController();
+  late final TextEditingController _searchController = TextEditingController();
   late List<Product> filteredProducts = [];
 
   void _filterProducts(String search) {
@@ -20,16 +20,17 @@ late final TextEditingController _searchController = TextEditingController();
     filterProducts.addAll(products.where((product) =>
         product.productName.toLowerCase().contains(search.toLowerCase())));
     setState(() {
-      if(search.isNotEmpty){
+      if (search.isNotEmpty) {
         filteredProducts = filterProducts;
-      }else{
-        filteredProducts =[];
+      } else {
+        filteredProducts = [];
       }
     });
   }
+
   @override
   Widget build(BuildContext context) {
-    return   Column(
+    return Column(
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
@@ -43,7 +44,7 @@ late final TextEditingController _searchController = TextEditingController();
                 onPressed: () {
                   _searchController.clear();
                   _filterProducts('');
-                    widget.callback();
+                  widget.callback();
                 },
               ),
             ),
@@ -52,8 +53,9 @@ late final TextEditingController _searchController = TextEditingController();
             },
           ),
         ),
-        Expanded(child: GridWidget(object: filteredProducts),
-    )
+        Expanded(
+          child: GridWidget(object: filteredProducts),
+        )
       ],
     );
   }

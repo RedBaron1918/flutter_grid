@@ -15,15 +15,19 @@ class ProductDetails extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            Container(
-              height: 220,
-              width: 220,
-              decoration: BoxDecoration(
-                border: Border.all(
-                    width: 1, color: const Color.fromARGB(255, 231, 231, 231)),
-                borderRadius: BorderRadius.circular(10),
+            Hero(
+              tag: details.productName,
+              child: Container(
+                height: 220,
+                width: 220,
+                decoration: BoxDecoration(
+                  border: Border.all(
+                      width: 1,
+                      color: const Color.fromARGB(255, 231, 231, 231)),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Image.asset("assets/${details.img}"),
               ),
-              child: Image.asset("assets/${details.img}"),
             ),
             const SizedBox(
               height: 15,

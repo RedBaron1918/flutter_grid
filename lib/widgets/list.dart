@@ -9,6 +9,7 @@ class ListWidget extends StatefulWidget {
   @override
   State<ListWidget> createState() => _ListWidgetState();
 }
+
 class _ListWidgetState extends State<ListWidget> {
   @override
   Widget build(BuildContext context) {
@@ -26,8 +27,7 @@ class _ListWidgetState extends State<ListWidget> {
                 child: Card(
                   child: InkWell(
                     onTap: () {
-                      Navigator.push(
-                        context,
+                      Navigator.of(context).push(
                         MaterialPageRoute(
                           builder: (context) =>
                               ProductDetails(details: product),
@@ -37,10 +37,12 @@ class _ListWidgetState extends State<ListWidget> {
                     child: ListTile(
                       title: Text(product.productName),
                       leading: CircleAvatar(
-                        backgroundImage:
-                            AssetImage('assets/${product.img}'),
+                        backgroundImage: AssetImage('assets/${product.img}'),
                       ),
-                      trailing: const Icon(Icons.arrow_forward_rounded),
+                      trailing: Hero(
+                        tag: product.productName,
+                        child: const Icon(Icons.arrow_forward_rounded),
+                      ),
                     ),
                   ),
                 ),

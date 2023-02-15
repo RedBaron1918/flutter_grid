@@ -3,7 +3,7 @@ import 'widgets/grid.dart';
 import 'widgets/list.dart';
 
 class ProductList extends StatefulWidget {
-  const ProductList({super.key});
+  const ProductList({Key? key}) : super(key: key);
   @override
   State<ProductList> createState() => _ProductListState();
 }
@@ -28,7 +28,7 @@ class _ProductListState extends State<ProductList> {
               icon: const Icon(Icons.grid_view))
         ],
       ),
-      body: _isListView ? ListWidget() : GridWidget(),
+      body: _isListView ?  ListWidget() : const GridWidget(),
     );
   }
 }

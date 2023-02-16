@@ -8,4 +8,5 @@ class Product {
       required this.price,
       required this.img,
       required this.description});
+      
 }

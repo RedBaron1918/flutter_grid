@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/classes/product.dart';
 import 'package:flutter_application_1/screens/product_details.dart';
-import 'package:flutter_application_1/consts.dart';
+import 'package:flutter_application_1/constants.dart';
 
 class ListWidget extends StatefulWidget {
   const ListWidget({Key? key}) : super(key: key);

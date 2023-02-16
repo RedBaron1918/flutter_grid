@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/classes/product.dart';
-import 'package:flutter_application_1/consts.dart';
+import 'package:flutter_application_1/constants.dart';
 import "package:flutter_application_1/widgets/grid.dart";
+import 'package:flutter_application_1/widgets/item_list_search.dart';
 
 class SearchBar extends StatefulWidget {
   final Function callback;
@@ -12,20 +13,15 @@ class SearchBar extends StatefulWidget {
 }
 
 class _SearchBarState extends State<SearchBar> {
-  late final TextEditingController _searchController = TextEditingController();
-  late List<Product> filteredProducts = products;
+  final TextEditingController _searchController = TextEditingController();
+  List<Product> filteredProducts = products;
 
   void _filterProducts(String search) {
-    List<Product> filterProducts = [];
-    filterProducts.addAll(products.where((product) =>
-        product.productName.toLowerCase().contains(search.toLowerCase())));
-    setState(() {
-      if (search.isNotEmpty) {
-        filteredProducts = filterProducts;
-      } else {
-        filteredProducts = products;
-      }
-    });
+    filteredProducts = products
+        .where((product) =>
+            product.productName.toLowerCase().contains(search.toLowerCase()))
+        .toList();
+    setState(() {});
   }
 
   @override
@@ -54,7 +50,7 @@ class _SearchBarState extends State<SearchBar> {
           ),
         ),
         Expanded(
-          child: GridWidget(object: filteredProducts),
+          child:products.length == filteredProducts.length ? GridWidget(object: filteredProducts) :ListSearch(object: filteredProducts) ,
         )
       ],
     );

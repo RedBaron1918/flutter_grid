@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/consts.dart';
+import 'package:flutter_application_1/constants.dart';
 import 'package:flutter_application_1/widgets/grid.dart';
 import 'package:flutter_application_1/widgets/list.dart';
 import 'package:flutter_application_1/widgets/search_bar.dart';
